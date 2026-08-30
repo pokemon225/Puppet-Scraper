@@ -73,7 +73,7 @@ const bootstrap: PSBootstrap = async ({
       const finishedPages = await Promise.all(
         // eslint-disable-next-line no-loop-func
         pages.reduce<Promise<Page>[]>((finishedPages, page) => {
-          if (current <= total) {
+          if (current < total) {
             const finishedPage = page
               .goto(urls[current++], mergedPageOptions)
               .then(() => page);
